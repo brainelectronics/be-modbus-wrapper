@@ -3,12 +3,10 @@
 
 """Unittest for Modbus Wrapper package"""
 
-import argparse
 from be_helpers import ModuleHelper
 import logging
 import unittest
 import sys
-from typing import Any, List, Union
 
 # custom imports
 from be_modbus_wrapper import ModbusWrapper
