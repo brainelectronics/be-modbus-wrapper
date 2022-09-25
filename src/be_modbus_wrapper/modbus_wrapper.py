@@ -129,7 +129,7 @@ class ModbusWrapper(ModuleHelper):
             # e.g. 00:A0:45:66:4F:40 0X00A0 0X4566 0X4F40
             # MAC_ADDRESS_HREG: [43124, 7576, 976]
             val_str = ''.join(format(x, 'X') for x in value)
-            return ':'.join(val_str[i:i+2] for i in range(0, len(val_str), 2))
+            return ':'.join(val_str[i:i + 2] for i in range(0, len(val_str), 2))    # noqa
         elif ((key == 'CHARGING_BEGIN_TIME_IREG') or
               (key == 'CHARGING_DURATION_IREG') or
               (key == 'CHARGING_END_TIME_IREG') or
@@ -641,8 +641,8 @@ class ModbusWrapper(ModuleHelper):
 
                 try:
                     restored = self.restore_human_readable_content(
-                                        key=key,
-                                        value=register_val)
+                        key=key,
+                        value=register_val)
                 except Exception:
                     restored = ''
 
@@ -651,7 +651,7 @@ class ModbusWrapper(ModuleHelper):
                                                          register_description))
                     self.logger.debug('\t{}\t{}'.format(register_val,
                                                         register_description))
-                    register_content[key+'_HUMAN'] = restored
+                    register_content[key + '_HUMAN'] = restored
                 else:
                     self.logger.info('\t{}\t{}'.format(register_val,
                                                        register_description))
@@ -850,7 +850,7 @@ class ModbusWrapper(ModuleHelper):
                                                          register_description))
                     self.logger.debug('\t{}\t{}'.format(register_val,
                                                         register_description))
-                    register_content[key+'_HUMAN'] = restored
+                    register_content[key + '_HUMAN'] = restored
                 else:
                     self.logger.info('\t{}\t{}'.format(register_val,
                                                        register_description))
