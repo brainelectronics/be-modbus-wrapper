@@ -1,0 +1,6 @@
+# List external packages here
+# Avoid fixed versions
+pymodbus>=2.4.0,<3
+
+# custom brainelectronics packages
+be-helpers>=0.1.0,<1                # required by all other modules
