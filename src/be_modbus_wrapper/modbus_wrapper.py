@@ -14,6 +14,8 @@ import datetime
 from pymodbus.client.sync import ModbusTcpClient        # as ModbusClient
 # from pymodbus.client.sync import ModbusUdpClient      # as ModbusClient
 from pymodbus.client.sync import ModbusSerialClient     # as ModbusClient
+from pymodbus.constants import Endian
+from pymodbus.payload import BinaryPayloadDecoder
 import logging
 from typing import Tuple
 from typing import Union
@@ -613,6 +615,7 @@ class ModbusWrapper(ModuleHelper):
             register_address = val['register']
             count = val['len']
             register_description = val['description']
+            register_type = val.get('type', '')
             expected_val = 0
 
             if 'test' in val:
@@ -638,6 +641,15 @@ class ModbusWrapper(ModuleHelper):
                     register_val = registers[0]
                 else:
                     register_val = registers[0:count]
+
+                if register_type == 'float':
+                    # https://de.wikipedia.org/wiki/IEEE_754
+                    # https://stackoverflow.com/questions/55815894/how-to-take-float-value-with-pymodbus-tcp-library    # noqa
+                    decoder = BinaryPayloadDecoder.fromRegisters(
+                        registers=response.registers,
+                        byteorder=Endian.Big,
+                        wordorder=Endian.Big)
+                    register_val = decoder.decode_32bit_float()
 
                 try:
                     restored = self.restore_human_readable_content(
@@ -810,6 +822,7 @@ class ModbusWrapper(ModuleHelper):
             register_address = val['register']
             count = val['len']
             register_description = val['description']
+            register_type = val.get('type', '')
             expected_val = 0
 
             if 'test' in val:
@@ -837,6 +850,15 @@ class ModbusWrapper(ModuleHelper):
                     # using a higher range than available is save and will just
                     # return all available content of the list
                     register_val = registers[0:count]
+
+                if register_type == 'float':
+                    # https://de.wikipedia.org/wiki/IEEE_754
+                    # https://stackoverflow.com/questions/55815894/how-to-take-float-value-with-pymodbus-tcp-library    # noqa
+                    decoder = BinaryPayloadDecoder.fromRegisters(
+                        registers=response.registers,
+                        byteorder=Endian.Big,
+                        wordorder=Endian.Big)
+                    register_val = decoder.decode_32bit_float()
 
                 try:
                     restored = self.restore_human_readable_content(
