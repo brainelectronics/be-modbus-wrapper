@@ -1,0 +1,543 @@
+{
+    "IREGS": {
+        "PHASE_1_LINE_TO_NEUTRAL_VOLTS_IREGS": {
+            "register": 0,
+            "len": 2,
+            "description": "Phase 1 line to neutral volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "PHASE_2_LINE_TO_NEUTRAL_VOLTS_IREGS": {
+            "register": 2,
+            "len": 2,
+            "description": "Phase 2 line to neutral volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "PHASE_3_LINE_TO_NEUTRAL_VOLTS_IREGS": {
+            "register": 4,
+            "len": 2,
+            "description": "Phase 3 line to neutral volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "PHASE_1_CURRENT_IREGS": {
+            "register": 6,
+            "len": 2,
+            "description": "Phase 1 current",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "PHASE_2_CURRENT_IREGS": {
+            "register": 8,
+            "len": 2,
+            "description": "Phase 2 current",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "PHASE_3_CURRENT_IREGS": {
+            "register": 10,
+            "len": 2,
+            "description": "Phase 3 current",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "PHASE_1_POWER_IREGS": {
+            "register": 12,
+            "len": 2,
+            "description": "Phase 1 power",
+            "range": "",
+            "unit": "Watts",
+            "type": "float"
+        },
+        "PHASE_2_POWER_IREGS": {
+            "register": 14,
+            "len": 2,
+            "description": "Phase 2 power",
+            "range": "",
+            "unit": "Watts",
+            "type": "float"
+        },
+        "PHASE_3_POWER_IREGS": {
+            "register": 16,
+            "len": 2,
+            "description": "Phase 3 power",
+            "range": "",
+            "unit": "Watts",
+            "type": "float"
+        },
+        "PHASE_1_VOLT_AMPS_IREGS": {
+            "register": 18,
+            "len": 2,
+            "description": "Phase 1 volt amps",
+            "range": "",
+            "unit": "VA",
+            "type": "float"
+        },
+        "PHASE_2_VOLT_AMPS_IREGS": {
+            "register": 20,
+            "len": 2,
+            "description": "Phase 2 volt amps",
+            "range": "",
+            "unit": "VA",
+            "type": "float"
+        },
+        "PHASE_3_VOLT_AMPS_IREGS": {
+            "register": 22,
+            "len": 2,
+            "description": "Phase 3 volt amps",
+            "range": "",
+            "unit": "VA",
+            "type": "float"
+        },
+        "PHASE_1_VOLT_AMPS_REACTIVE_IREGS": {
+            "register": 24,
+            "len": 2,
+            "description": "Phase 1 volt amps reactive",
+            "range": "",
+            "unit": "VAr",
+            "type": "float"
+        },
+        "PHASE_2_VOLT_AMPS_REACTIVE_IREGS": {
+            "register": 26,
+            "len": 2,
+            "description": "Phase 2 volt amps reactive",
+            "range": "",
+            "unit": "VAr",
+            "type": "float"
+        },
+        "PHASE_3_VOLT_AMPS_REACTIVE_IREGS": {
+            "register": 28,
+            "len": 2,
+            "description": "Phase 3 volt amps reactive",
+            "range": "",
+            "unit": "VAr",
+            "type": "float"
+        },
+        "PHASE_1_POWER_FACTOR_IREGS": {
+            "register": 30,
+            "len": 2,
+            "description": "Phase 1 power factor",
+            "range": "",
+            "unit": "None",
+            "type": "float"
+        },
+        "PHASE_2_POWER_FACTOR_IREGS": {
+            "register": 32,
+            "len": 2,
+            "description": "Phase 2 power factor",
+            "range": "",
+            "unit": "None",
+            "type": "float"
+        },
+        "PHASE_3_POWER_FACTOR_IREGS": {
+            "register": 34,
+            "len": 2,
+            "description": "Phase 3 power factor",
+            "range": "",
+            "unit": "None",
+            "type": "float"
+        },
+        "PHASE_1_PHASE_ANGLE_IREGS": {
+            "register": 36,
+            "len": 2,
+            "description": "Phase 1 phase angle",
+            "range": "",
+            "unit": "Degrees",
+            "type": "float"
+        },
+        "PHASE_2_PHASE_ANGLE_IREGS": {
+            "register": 38,
+            "len": 2,
+            "description": "Phase 2 phase angle",
+            "range": "",
+            "unit": "Degrees",
+            "type": "float"
+        },
+        "PHASE_3_PHASE_ANGLE_IREGS": {
+            "register": 40,
+            "len": 2,
+            "description": "Phase 3 phase angle",
+            "range": "",
+            "unit": "Degrees",
+            "type": "float"
+        },
+        "AVERAGE_LINE_TO_NEUTRAL_VOLTS_IREGS": {
+            "register": 42,
+            "len": 2,
+            "description": "Average line to neutral volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "AVERAGE_LINE_CURRENT_IREGS": {
+            "register": 46,
+            "len": 2,
+            "description": "Average line current",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "SUM_OF_LINE_CURRENTS_IREGS": {
+            "register": 48,
+            "len": 2,
+            "description": "Sum of line currents",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "TOTAL_SYSTEM_POWER_IREGS": {
+            "register": 52,
+            "len": 2,
+            "description": "Total system power",
+            "range": "",
+            "unit": "Watts",
+            "type": "float"
+        },
+        "TOTAL_SYSTEM_VOLT_AMPS_IREGS": {
+            "register": 56,
+            "len": 2,
+            "description": "Total system volt amps",
+            "range": "",
+            "unit": "VA",
+            "type": "float"
+        },
+        "TOTAL_SYSTEM_VAR_IREGS": {
+            "register": 60,
+            "len": 2,
+            "description": "Total system VAr",
+            "range": "",
+            "unit": "VAr",
+            "type": "float"
+        },
+        "TOTAL_SYSTEM_POWER_FACTOR_IREGS": {
+            "register": 254,
+            "len": 2,
+            "description": "Total system power factor",
+            "range": "",
+            "unit": "Degrees",
+            "type": "float"
+        },
+        "TOTAL_SYSTEM_PHASE_ANGLE_IREGS": {
+            "register": 66,
+            "len": 2,
+            "description": "Total system phase angle",
+            "range": "",
+            "unit": "Degrees",
+            "type": "float"
+        },
+        "FREQUENCY_OF_SUPPLY_VOLTAGES_IREGS": {
+            "register": 70,
+            "len": 2,
+            "description": "Frequency of supply voltages",
+            "range": "",
+            "unit": "Hz",
+            "type": "float"
+        },
+        "IMPORT_WH_SINCE_LAST_RESET_IREGS": {
+            "register": 72,
+            "len": 2,
+            "description": "Import Wh since last reset",
+            "range": "",
+            "unit": "kWh/MWh",
+            "type": "float"
+        },
+        "EXPORT_WH_SINCE_LAST_RESET_IREGS": {
+            "register": 74,
+            "len": 2,
+            "description": "Export Wh since last reset",
+            "range": "",
+            "unit": "kWh/MWh",
+            "type": "float"
+        },
+        "IMPORT_VARH_SINCE_LAST_RESET_IREGS": {
+            "register": 76,
+            "len": 2,
+            "description": "Import VArh since last reset",
+            "range": "",
+            "unit": "kVArh/MVArh",
+            "type": "float"
+        },
+        "EXPORT_VARH_SINCE_LAST_RESET_IREGS": {
+            "register": 78,
+            "len": 2,
+            "description": "Export VArh since last reset",
+            "range": "",
+            "unit": "kVArh/MVArh",
+            "type": "float"
+        },
+        "VAH_SINCE_LAST_RESET_IREGS": {
+            "register": 80,
+            "len": 2,
+            "description": "VAh since last reset",
+            "range": "",
+            "unit": "kVAh/MVAh",
+            "type": "float"
+        },
+        "AH_SINCE_LAST_RESET_IREGS": {
+            "register": 82,
+            "len": 2,
+            "description": "Ah since last reset",
+            "range": "",
+            "unit": "Ah/kAh",
+            "type": "float"
+        },
+        "TOTAL_SYSTEM_POWER_DEMAND_IREGS": {
+            "register": 84,
+            "len": 2,
+            "description": "Total system power demand",
+            "range": "",
+            "unit": "Watts",
+            "type": "float"
+        },
+        "MAXIMUM_TOTAL_SYSTEM_POWER_DEMAND_IREGS": {
+            "register": 86,
+            "len": 2,
+            "description": "Maximum total system power demand",
+            "range": "",
+            "unit": "VA",
+            "type": "float"
+        },
+        "TOTAL_SYSTEM_VA_DEMAND_IREGS": {
+            "register": 100,
+            "len": 2,
+            "description": "Total system VA demand",
+            "range": "",
+            "unit": "VA",
+            "type": "float"
+        },
+        "MAXIMUM_TOTAL_SYSTEM_VA_DEMAND_IREGS": {
+            "register": 102,
+            "len": 2,
+            "description": "Maximum total system VA demand",
+            "range": "",
+            "unit": "VA",
+            "type": "float"
+        },
+        "NEUTRAL_CURRENT_DEMAND_IREGS": {
+            "register": 104,
+            "len": 2,
+            "description": "Neutral current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "MAXIMUM_NEUTRAL_CURRENT_DEMAND_IREGS": {
+            "register": 106,
+            "len": 2,
+            "description": "Maximum neutral current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "LINE_1_TO_LINE_2_VOLTS_IREGS": {
+            "register": 200,
+            "len": 2,
+            "description": "Line 1 to Line 2 volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "LINE_2_TO_LINE_3_VOLTS_IREGS": {
+            "register": 202,
+            "len": 2,
+            "description": "Line 2 to Line 3 volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "LINE_3_TO_LINE_1_VOLTS_IREGS": {
+            "register": 204,
+            "len": 2,
+            "description": "Line 3 to Line 1 volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "AVERAGE_LINE_TO_LINE_VOLTS_IREGS": {
+            "register": 206,
+            "len": 2,
+            "description": "Average line to line volts",
+            "range": "",
+            "unit": "Volts",
+            "type": "float"
+        },
+        "NEUTRAL_CURRENT_IREGS": {
+            "register": 224,
+            "len": 2,
+            "description": "Neutral current",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "PHASE_1_L/N_VOLTS_THD_IREGS": {
+            "register": 234,
+            "len": 2,
+            "description": "Phase 1 L/N volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "PHASE_2_L/N_VOLTS_THD_IREGS": {
+            "register": 236,
+            "len": 2,
+            "description": "Phase 2 L/N volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "PHASE_3_L/N_VOLTS_THD_IREGS": {
+            "register": 238,
+            "len": 2,
+            "description": "Phase 3 L/N volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "PHASE_1_CURRENT_THD_IREGS": {
+            "register": 240,
+            "len": 2,
+            "description": "Phase 1 Current THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "PHASE_2_CURRENT_THD_IREGS": {
+            "register": 242,
+            "len": 2,
+            "description": "Phase 2 Current THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "PHASE_3_CURRENT_THD_IREGS": {
+            "register": 244,
+            "len": 2,
+            "description": "Phase 3 Current THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "AVERAGE_LINE_TO_NEUTRAL_VOLTS_THD_IREGS": {
+            "register": 248,
+            "len": 2,
+            "description": "Average line to neutral volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "AVERAGE_LINE_CURRENT_THD_IREGS": {
+            "register": 250,
+            "len": 2,
+            "description": "Average line current THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "PHASE_1_CURRENT_DEMAND_IREGS": {
+            "register": 258,
+            "len": 2,
+            "description": "Phase 1 current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "PHASE_2_CURRENT_DEMAND_IREGS": {
+            "register": 260,
+            "len": 2,
+            "description": "Phase 2 current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "PHASE_3_CURRENT_DEMAND_IREGS": {
+            "register": 262,
+            "len": 2,
+            "description": "Phase 3 current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "MAXIMUM_PHASE_1_CURRENT_DEMAND_IREGS": {
+            "register": 264,
+            "len": 2,
+            "description": "Maximum phase 1 current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "MAXIMUM_PHASE_2_CURRENT_DEMAND_IREGS": {
+            "register": 266,
+            "len": 2,
+            "description": "Maximum phase 2 current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "MAXIMUM_PHASE_3_CURRENT_DEMAND_IREGS": {
+            "register": 268,
+            "len": 2,
+            "description": "Maximum phase 3 current demand",
+            "range": "",
+            "unit": "Amps",
+            "type": "float"
+        },
+        "LINE_1_TO_LINE_2_VOLTS_THD_IREGS": {
+            "register": 334,
+            "len": 2,
+            "description": "Line 1 to line 2 volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "LINE_2_TO_LINE_3_VOLTS_THD_IREGS": {
+            "register": 336,
+            "len": 2,
+            "description": "Line 2 to line 3 volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "LINE_3_TO_LINE_1_VOLTS_THD_IREGS": {
+            "register": 338,
+            "len": 2,
+            "description": "Line 3 to line 1 volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "AVERAGE_LINE_TO_LINE_VOLTS_THD_IREGS": {
+            "register": 340,
+            "len": 2,
+            "description": "Average line to line volts THD",
+            "range": "",
+            "unit": "%",
+            "type": "float"
+        },
+        "TOTAL_KWH_IREGS": {
+            "register": 342,
+            "len": 2,
+            "description": "Total kWh",
+            "range": "",
+            "unit": "kWh",
+            "type": "float"
+        }
+    },
+    "META": {
+        "created": "09.10.2022",
+        "modified": "09.10.2022"
+    },
+    "CONNECTION": {
+        "type": "rtu",
+        "unit": 10,
+        "address": "/dev/tty.wchusbserial1420",
+        "baudrate": 9600,
+        "mode": "slave"
+    }
+}
