@@ -1,0 +1,796 @@
+{
+    "HREGS": {
+        "ON_OFF": {
+            "register": 0,
+            "len": 1,
+            "description": "Remote On/Off",
+            "range": "",
+            "unit": "",
+            "type": "bit"
+        },
+        "OUTPUT_CONFIG": {
+            "register": 1,
+            "len": 1,
+            "description": "AC output set, 0 BAT, 1 PV, 2, UTI",
+            "range": "",
+            "unit": ""
+        },
+        "CHARGE_CONFIG": {
+            "register": 2,
+            "len": 1,
+            "description": "Charge source set, 0 PV first, 1 PV and UTI, 2 PV only",
+            "range": "",
+            "unit": ""
+        },
+        "UTI_OUT_START": {
+            "register": 3,
+            "len": 1,
+            "description": "Utility output start time hour",
+            "range": "0, 23",
+            "unit": ""
+        },
+        "UTI_OUT_END": {
+            "register": 4,
+            "len": 1,
+            "description": "Utility output end time hour",
+            "range": "0, 23",
+            "unit": ""
+        },
+        "UTI_CHARGE_START": {
+            "register": 5,
+            "len": 1,
+            "description": "Utility charge start time hour",
+            "range": "0, 23",
+            "unit": ""
+        },
+        "UTI_CHARGE_END": {
+            "register": 6,
+            "len": 1,
+            "description": "Utility charge end time hour",
+            "range": "0, 23",
+            "unit": ""
+        },
+        "PV_MODEL": {
+            "register": 7,
+            "len": 1,
+            "description": "PV input mode, 0: independent, 1: parallel",
+            "range": "",
+            "unit": ""
+        },
+        "AC_IN_MODEL": {
+            "register": 8,
+            "len": 1,
+            "description": "AC input mode, 0: APL 90-280VAC, 1: UPS 170-280VAC",
+            "range": "",
+            "unit": ""
+        },
+        "FIRMWARE_VERSION_HIGH": {
+            "register": 9,
+            "len": 1,
+            "description": "Firmware version (high byte)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FIRMWARE_VERSION_MIDDLE": {
+            "register": 10,
+            "len": 1,
+            "description": "Firmware version (middle byte)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FIRMWARE_VERSION_LOW": {
+            "register": 11,
+            "len": 1,
+            "description": "Firmware version (low byte)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FIRMWARE_VERSION_2_HIGH": {
+            "register": 12,
+            "len": 1,
+            "description": "Control firmware version (high byte)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FIRMWARE_VERSION_2_MIDDLE": {
+            "register": 13,
+            "len": 1,
+            "description": "Control firmware version (middle byte)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FIRMWARE_VERSION_2_LOW": {
+            "register": 14,
+            "len": 1,
+            "description": "Control firmware version (low byte)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "LCD_LANGUAGE": {
+            "register": 15,
+            "len": 1,
+            "description": "LCD language",
+            "range": "0, 8",
+            "unit": ""
+        },
+        "OUTPUT_VOLT_TYPE": {
+            "register": 18,
+            "len": 1,
+            "description": "Output voltage type, 0: 208VAC, 1: 230VAC, 2: 240VAC",
+            "range": "",
+            "unit": ""
+        },
+        "OUTPUT_FREQ_TYPE": {
+            "register": 19,
+            "len": 1,
+            "description": "Output frequency type, 0: 50Hz, 1: 60Hz",
+            "range": "",
+            "unit": ""
+        },
+        "OVERLOAD_RESTART": {
+            "register": 20,
+            "len": 1,
+            "description": "Overload restart, 0: yes, 1: no, 2: switch to UTI",
+            "range": "",
+            "unit": ""
+        },
+        "OVERTEMP_RESTART": {
+            "register": 21,
+            "len": 1,
+            "description": "Overtemperature restart, 0: yes, 1: no",
+            "range": "",
+            "unit": ""
+        },
+        "BUZZER_EN": {
+            "register": 22,
+            "len": 1,
+            "description": "Buzzer on/off, 0: disable, 1: enable",
+            "range": "",
+            "unit": ""
+        },
+        "SERIAL_NO_5": {
+            "register": 23,
+            "len": 1,
+            "description": "Serial number 1-2",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "SERIAL_NO_4": {
+            "register": 24,
+            "len": 1,
+            "description": "Serial number 3-4",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "SERIAL_NO_3": {
+            "register": 25,
+            "len": 1,
+            "description": "Serial number 5-6",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "SERIAL_NO_2": {
+            "register": 26,
+            "len": 1,
+            "description": "Serial number 7-8",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "SERIAL_NO_1": {
+            "register": 27,
+            "len": 1,
+            "description": "Serial number 9-10",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MODULE_HIGH": {
+            "register": 28,
+            "len": 1,
+            "description": "Inverter Module (high byte)",
+            "range": "",
+            "unit": ""
+        },
+        "MODULE_LOW": {
+            "register": 29,
+            "len": 1,
+            "description": "Inverter Module (low byte), P-battery type: 0: Lead acid, 1: Lithium, 2: Custom Lead acid; U-user type: 0: No vendor, 1: Growatt, 2: CPS, 3: Haiti; M-power rate: 3: 3kW, 5: 5kW; S-Aging: 0: Normal mode, 1: Aging mode",
+            "range": "",
+            "unit": ""
+        },
+        "COM_ADDRESS": {
+            "register": 30,
+            "len": 1,
+            "description": "Modbus communication address",
+            "range": "1, 254",
+            "unit": ""
+        },
+        "MAX_CHARGE_CURRENT": {
+            "register": 34,
+            "len": 1,
+            "description": "Maximum charging current",
+            "range": "10, 130",
+            "unit": "A"
+        },
+        "BULK_CHARGE_VOLTAGE": {
+            "register": 35,
+            "len": 1,
+            "description": "Bulk charge voltage",
+            "range": "500, 580",
+            "unit": "0.1V"
+        },
+        "FLOAT_CHARGE_VOLTAGE": {
+            "register": 36,
+            "len": 1,
+            "description": "Float charge voltage",
+            "range": "500, 560",
+            "unit": "0.1V"
+        },
+        "BAT_LOW_TO_UTI_VOLT": {
+            "register": 37,
+            "len": 1,
+            "description": "Battery low voltage to switch to utility",
+            "range": "444, 514",
+            "unit": "0.1V"
+        },
+        "FLOAT_CHARGE_CURRENT": {
+            "register": 38,
+            "len": 1,
+            "description": "Float charge current",
+            "range": "0, 80",
+            "unit": "0.1A"
+        },
+        "BATTERY_TYPE": {
+            "register": 39,
+            "len": 1,
+            "description": "Battery type, 0: Lead acid, 1: Lithium, 2: Custom Lead acid",
+            "range": "",
+            "unit": ""
+        },
+        "AGING_MODE": {
+            "register": 40,
+            "len": 1,
+            "description": "Aging mode, 0: Normal mode, 1: Aging mode",
+            "range": "",
+            "unit": ""
+        },
+        "DTC": {
+            "register": 43,
+            "len": 1,
+            "description": "Device Type Code",
+            "range": "",
+            "unit": ""
+        },
+        "SYS_YEAR": {
+            "register": 45,
+            "len": 1,
+            "description": "System time year",
+            "range": "",
+            "unit": ""
+        },
+        "SYS_MONTH": {
+            "register": 46,
+            "len": 1,
+            "description": "System time month",
+            "range": "",
+            "unit": ""
+        },
+        "SYS_DAY": {
+            "register": 47,
+            "len": 1,
+            "description": "System time day",
+            "range": "",
+            "unit": ""
+        },
+        "SYS_HOUR": {
+            "register": 48,
+            "len": 1,
+            "description": "System time hour",
+            "range": "",
+            "unit": ""
+        },
+        "SYS_MINUTE": {
+            "register": 49,
+            "len": 1,
+            "description": "System time minute",
+            "range": "",
+            "unit": ""
+        },
+        "SYS_SECOND": {
+            "register": 50,
+            "len": 1,
+            "description": "System time second",
+            "range": "",
+            "unit": ""
+        },
+        "MANUFACTURER_INFO_8": {
+            "register": 59,
+            "len": 1,
+            "description": "Manufacturer info (high)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MANUFACTURER_INFO_7": {
+            "register": 60,
+            "len": 1,
+            "description": "Manufacturer info (middle)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MANUFACTURER_INFO_6": {
+            "register": 61,
+            "len": 1,
+            "description": "Manufacturer info (low)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MANUFACTURER_INFO_5": {
+            "register": 62,
+            "len": 1,
+            "description": "Manufacturer info (high)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MANUFACTURER_INFO_4": {
+            "register": 63,
+            "len": 1,
+            "description": "Manufacturer info (middle)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MANUFACTURER_INFO_3": {
+            "register": 64,
+            "len": 1,
+            "description": "Manufacturer info (low)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MANUFACTURER_INFO_2": {
+            "register": 65,
+            "len": 1,
+            "description": "Manufacturer info (low)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "MANUFACTURER_INFO_1": {
+            "register": 66,
+            "len": 1,
+            "description": "Manufacturer info (high)",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FW_BUILD_NO_4": {
+            "register": 67,
+            "len": 1,
+            "description": "Control firmware build number 2",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FW_BUILD_NO_3": {
+            "register": 68,
+            "len": 1,
+            "description": "Control firmware build number 1",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FW_BUILD_NO_2": {
+            "register": 69,
+            "len": 1,
+            "description": "COM firmware build number 2",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "FW_BUILD_NO_1": {
+            "register": 70,
+            "len": 1,
+            "description": "COM firmware build number 1",
+            "range": "",
+            "unit": "",
+            "type": "string"
+        },
+        "SYS_WEEKLY": {
+            "register": 72,
+            "len": 1,
+            "description": "Sys weekly",
+            "range": "0, 6",
+            "unit": ""
+        },
+        "MODBUS_VERSION": {
+            "register": 73,
+            "len": 1,
+            "description": "Modbus Version",
+            "range": "",
+            "unit": ""
+        },
+        "RATE_WATT_HIGH": {
+            "register": 76,
+            "len": 1,
+            "description": "Rate active power (high byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "RATE_WATT_LOW": {
+            "register": 77,
+            "len": 1,
+            "description": "Rate active power (low byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "RATE_VA_HIGH": {
+            "register": 78,
+            "len": 1,
+            "description": "Rate apparent power (high byte)",
+            "range": "",
+            "unit": "0.1VA"
+        },
+        "RATE_VA_LOW": {
+            "register": 79,
+            "len": 1,
+            "description": "Rate apparent power (low byte)",
+            "range": "",
+            "unit": "0.1VA"
+        },
+        "FACTORY": {
+            "register": 80,
+            "len": 1,
+            "description": "ODM info code",
+            "range": "",
+            "unit": ""
+        },
+        "BL_VERSION_2": {
+            "register": 162,
+            "len": 1,
+            "description": "Bootloader version 2",
+            "range": "",
+            "unit": ""
+        }
+    },
+    "IREGS": {
+        "SYSTEM_STATUS": {
+            "register": 0,
+            "len": 1,
+            "description": "System run state, 0: standby, 2: discharge, 3: fault, 4: flash, 5: PV charge, 6: AC charge, 7: combine charge, 8: combine charge and bypass, 9: PV charge and bypass, 10: AC charge and bypass, 11: bypass, 12: PV charge and discharge",
+            "range": "",
+            "unit": ""
+        },
+        "V_PV_1": {
+            "register": 1,
+            "len": 1,
+            "description": "PV1 voltage",
+            "range": "",
+            "unit": "0.1V"
+        },
+        "V_PV_2": {
+            "register": 2,
+            "len": 1,
+            "description": "PV2 voltage",
+            "range": "",
+            "unit": "0.1V"
+        },
+        "P_PV_1_HIGH": {
+            "register": 3,
+            "len": 1,
+            "description": "PV1 charge power (high byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "P_PV_1_LOW": {
+            "register": 4,
+            "len": 1,
+            "description": "PV1 charge power (low byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "P_PV_2_HIGH": {
+            "register": 5,
+            "len": 1,
+            "description": "PV2 charge power (high byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "P_PV_2_LOW": {
+            "register": 6,
+            "len": 1,
+            "description": "PV2 charge power (low byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "BUCK_1_CURR": {
+            "register": 7,
+            "len": 1,
+            "description": "Buck1 current",
+            "range": "",
+            "unit": "0.1A"
+        },
+        "BUCK_2_CURR": {
+            "register": 8,
+            "len": 1,
+            "description": "Buck2 current",
+            "range": "",
+            "unit": "0.1A"
+        },
+        "OP_WATT_HIGH": {
+            "register": 9,
+            "len": 1,
+            "description": "Output active power (high byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "OP_WATT_LOW": {
+            "register": 10,
+            "len": 1,
+            "description": "Output active power (low byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "OP_VA_HIGH": {
+            "register": 11,
+            "len": 1,
+            "description": "Output apparent power (high byte)",
+            "range": "",
+            "unit": "0.1VA"
+        },
+        "OP_VA_LOW": {
+            "register": 12,
+            "len": 1,
+            "description": "Output apparent power (low byte)",
+            "range": "",
+            "unit": "0.1VA"
+        },
+        "AC_CHR_WATT_HIGH": {
+            "register": 13,
+            "len": 1,
+            "description": "AC charge power (high byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "AC_CHR_WATT_LOW": {
+            "register": 14,
+            "len": 1,
+            "description": "AC charge power (low byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "AC_CHR_VA_HIGH": {
+            "register": 15,
+            "len": 1,
+            "description": "AC charge apparent power (high byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "AC_CHR_VA_LOW": {
+            "register": 16,
+            "len": 1,
+            "description": "AC charge apparent power (low byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "BAT_VOLT": {
+            "register": 17,
+            "len": 1,
+            "description": "Battery voltage (M3)",
+            "range": "",
+            "unit": "0.01V"
+        },
+        "BATTERY_SOC": {
+            "register": 18,
+            "len": 1,
+            "description": "Battery SOC",
+            "range": "0, 100",
+            "unit": "%"
+        },
+        "BUS_VOLT": {
+            "register": 19,
+            "len": 1,
+            "description": "Bus voltage",
+            "range": "",
+            "unit": "0.1V"
+        },
+        "GRID_VOLT": {
+            "register": 20,
+            "len": 1,
+            "description": "AC input voltage",
+            "range": "",
+            "unit": "0.1V"
+        },
+        "LINE_FREQ": {
+            "register": 21,
+            "len": 1,
+            "description": "AC input frequency",
+            "range": "",
+            "unit": "0.01Hz"
+        },
+        "OUTPUT_VOLT": {
+            "register": 22,
+            "len": 1,
+            "description": "AC output voltage",
+            "range": "",
+            "unit": "0.1V"
+        },
+        "OUTPUT_FREQ": {
+            "register": 23,
+            "len": 1,
+            "description": "AC output frequency",
+            "range": "",
+            "unit": "0.01Hz"
+        },
+        "OUTPUT_DC_VOLT": {
+            "register": 24,
+            "len": 1,
+            "description": "DC output voltage",
+            "range": "",
+            "unit": "0.1V"
+        },
+        "INV_TEMP": {
+            "register": 25,
+            "len": 1,
+            "description": "Inverter temperature",
+            "range": "",
+            "unit": "0.1C"
+        },
+        "DC_DC_TEMP": {
+            "register": 26,
+            "len": 1,
+            "description": "DCDC temperature",
+            "range": "",
+            "unit": "0.1C"
+        },
+        "LOAD_PERCENT": {
+            "register": 27,
+            "len": 1,
+            "description": "Load percentage",
+            "range": "0, 1000",
+            "unit": "0.1%"
+        },
+        "BAT_S_VOLT": {
+            "register": 28,
+            "len": 1,
+            "description": "Battery port voltage (DSP)",
+            "range": "",
+            "unit": "0.01V"
+        },
+        "BAT_VOLT_DSP": {
+            "register": 29,
+            "len": 1,
+            "description": "Battery bus voltage",
+            "range": "",
+            "unit": "0.01V"
+        },
+        "TIME_TOTAL_HIGH": {
+            "register": 30,
+            "len": 1,
+            "description": "Work time total (high byte)",
+            "range": "",
+            "unit": "0.5sec"
+        },
+        "TIME_TOTAL_LOW": {
+            "register": 31,
+            "len": 1,
+            "description": "Work time total (low byte)",
+            "range": "",
+            "unit": "0.5sec"
+        },
+        "BUCK_1_NTC": {
+            "register": 32,
+            "len": 1,
+            "description": "Buck1 temperature",
+            "range": "",
+            "unit": "0.1C"
+        },
+        "BUCK_2_NTC": {
+            "register": 33,
+            "len": 1,
+            "description": "Buck2 temperature",
+            "range": "",
+            "unit": "0.1C"
+        },
+        "OUTPUT_CURR": {
+            "register": 34,
+            "len": 1,
+            "description": "Output current",
+            "range": "",
+            "unit": "0.1A"
+        },
+        "INV_CURR": {
+            "register": 35,
+            "len": 1,
+            "description": "Inverter current",
+            "range": "",
+            "unit": "0.1A"
+        },
+        "AC_IN_WATT_HIGH": {
+            "register": 36,
+            "len": 1,
+            "description": "AC input power (high byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "AC_IN_WATT_LOW": {
+            "register": 37,
+            "len": 1,
+            "description": "AC input power (low byte)",
+            "range": "",
+            "unit": "0.1W"
+        },
+        "AC_IN_VA_HIGH": {
+            "register": 38,
+            "len": 1,
+            "description": "AC input apparent power (high byte)",
+            "range": "",
+            "unit": "0.1VA"
+        },
+        "AC_IN_VA_LOW": {
+            "register": 39,
+            "len": 1,
+            "description": "AC input apparent power (low byte)",
+            "range": "",
+            "unit": "0.1VA"
+        },
+        "FAULT_BIT": {
+            "register": 40,
+            "len": 1,
+            "description": "Fault bit",
+            "range": "",
+            "unit": ""
+        },
+        "WARNING_BIT": {
+            "register": 41,
+            "len": 1,
+            "description": "Warning bit",
+            "range": "",
+            "unit": ""
+        },
+        "FAULT_VALUE": {
+            "register": 42,
+            "len": 1,
+            "description": "Fault value",
+            "range": "",
+            "unit": ""
+        },
+        "WARNING_VALUE": {
+            "register": 43,
+            "len": 1,
+            "description": "Warning value",
+            "range": "",
+            "unit": ""
+        },
+        "DTC": {
+            "register": 44,
+            "len": 1,
+            "description": "Device type code",
+            "range": "",
+            "unit": ""
+        }
+    },
+    "META": {
+        "created": "01.11.2022",
+        "modified": "01.11.2022"
+    },
+    "CONNECTION": {
+        "type": "rtu",
+        "unit": 1,
+        "address": "/dev/tty.wchusbserial1420",
+        "baudrate": 9600
+    }
+}

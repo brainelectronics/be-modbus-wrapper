@@ -55,12 +55,3 @@ jobs:
     - name: Test built package
       run: |
         twine check dist/*.tar.gz
-    - name: Archive build package artifact
-      uses: actions/upload-artifact@v3
-      if: ${{ matrix.python-version == '3.9' }}
-      with:
-        # https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
-        # ${{ github.repository }} and ${{ github.ref_name }} can't be used for artifact name due to unallowed '/'
-        name: dist_py.${{ matrix.python-version }}_repo.${{ github.event.repository.name }}_sha.${{ github.sha }}_build.${{ github.run_number }}
-        path: dist/*.tar.gz
-        retention-days: 14
