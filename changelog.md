@@ -17,6 +17,12 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.2.0] - 2022-11-01
+### Added
+- Add [`read_device_info_registers`](examples/read_device_info_registers.py)
+  script to read Modbus device data
+- Specify sleep time in seconds between two modbus operations
+
 ## [0.1.0] - 2022-09-25
 ### Added
 - This changelog file
@@ -34,8 +40,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [`tox.ini`](tox.ini) file using `nose2` and `coverage` create coverage report
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/be-modbus-wrapper/compare/0.1.0...develop
+[Unreleased]: https://github.com/brainelectronics/be-modbus-wrapper/compare/0.2.0...main
 
+[0.2.0]: https://github.com/brainelectronics/be-modbus-wrapper/tree/0.2.0
 [0.1.0]: https://github.com/brainelectronics/be-modbus-wrapper/tree/0.1.0
 
 <!--

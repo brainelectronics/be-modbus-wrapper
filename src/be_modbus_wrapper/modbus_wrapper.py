@@ -17,6 +17,7 @@ from pymodbus.client.sync import ModbusSerialClient     # as ModbusClient
 from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 import logging
+from time import sleep
 from typing import Tuple
 from typing import Union
 
@@ -301,7 +302,8 @@ class ModbusWrapper(ModuleHelper):
 
     def read_all_registers(self,
                            check_expectation: bool = False,
-                           file: str = 'modbusRegisters.json') -> dict:
+                           file: str = 'modbusRegisters.json',
+                           sleep_time_sec: int = 0) -> dict:
         """
         Read all modbus registers.
 
@@ -309,6 +311,8 @@ class ModbusWrapper(ModuleHelper):
         :type       check_expectation:  bool, optional
         :param      file:               The modbus register json file
         :type       file:               str, optional
+        :param      sleep_time_sec:     Sleep time between requests
+        :type       sleep_time_sec:     int, default 0
 
         :returns:   Dictionary with read register data
         :rtype:     dict
@@ -336,7 +340,8 @@ class ModbusWrapper(ModuleHelper):
         if 'COILS' in modbus_registers:
             invalid_counter, coil_register_content = self.read_coil_registers(
                 modbus_registers=modbus_registers['COILS'],
-                check_expectation=check_expectation)
+                check_expectation=check_expectation,
+                sleep_time_sec=sleep_time_sec)
             self.logger.debug('coil_register_content: {}'.
                               format(coil_register_content))
 
@@ -350,7 +355,8 @@ class ModbusWrapper(ModuleHelper):
         if 'HREGS' in modbus_registers:
             invalid_counter, hreg_register_content = self.read_hregs_registers(
                 modbus_registers=modbus_registers['HREGS'],
-                check_expectation=check_expectation)
+                check_expectation=check_expectation,
+                sleep_time_sec=sleep_time_sec)
             self.logger.debug('hreg_register_content: {}'.
                               format(hreg_register_content))
 
@@ -364,7 +370,8 @@ class ModbusWrapper(ModuleHelper):
         if 'ISTS' in modbus_registers:
             invalid_counter, ists_register_content = self.read_ists_registers(
                 modbus_registers=modbus_registers['ISTS'],
-                check_expectation=check_expectation)
+                check_expectation=check_expectation,
+                sleep_time_sec=sleep_time_sec)
             self.logger.debug('ists_register_content: {}'.
                               format(ists_register_content))
 
@@ -378,7 +385,8 @@ class ModbusWrapper(ModuleHelper):
         if 'IREGS' in modbus_registers:
             invalid_counter, ireg_register_content = self.read_iregs_registers(
                 modbus_registers=modbus_registers['IREGS'],
-                check_expectation=check_expectation)
+                check_expectation=check_expectation,
+                sleep_time_sec=sleep_time_sec)
             self.logger.debug('ireg_register_content: {}'.
                               format(ireg_register_content))
 
@@ -418,12 +426,16 @@ class ModbusWrapper(ModuleHelper):
         """
         self._read_content = value
 
-    def write_all_registers(self, file: str = 'modbusRegisters.json') -> dict:
+    def write_all_registers(self,
+                            file: str = 'modbusRegisters.json',
+                            sleep_time_sec: int = 0) -> dict:
         """
         Write all modbus registers.
 
-        :param      file:  The modbus register json file
-        :type       file:  str, optional
+        :param      file:           The modbus register json file
+        :type       file:           str, optional
+        :param      sleep_time_sec: Sleep time between requests
+        :type       sleep_time_sec: int, default 0
 
         :returns:   Dictionary with failed register write operations
         :rtype:     dict
@@ -450,7 +462,8 @@ class ModbusWrapper(ModuleHelper):
         self.logger.info('Coils:')
         if 'COILS' in modbus_registers:
             failed_counter, coil_register_log = self.write_coil_registers(
-                modbus_registers=modbus_registers['COILS'])
+                modbus_registers=modbus_registers['COILS'],
+                sleep_time_sec=sleep_time_sec)
             self.logger.debug('coil_register_log: {}'.
                               format(coil_register_log))
 
@@ -463,7 +476,8 @@ class ModbusWrapper(ModuleHelper):
         self.logger.info('Hregs:')
         if 'HREGS' in modbus_registers:
             failed_counter, hreg_register_log = self.write_hregs_registers(
-                modbus_registers=modbus_registers['HREGS'])
+                modbus_registers=modbus_registers['HREGS'],
+                sleep_time_sec=sleep_time_sec)
             self.logger.debug('hreg_register_log: {}'.
                               format(hreg_register_log))
 
@@ -492,7 +506,8 @@ class ModbusWrapper(ModuleHelper):
 
     def read_coil_registers(self,
                             modbus_registers: dict,
-                            check_expectation: bool) -> Tuple[int, dict]:
+                            check_expectation: bool,
+                            sleep_time_sec: int = 0) -> Tuple[int, dict]:
         """
         Read all coil registers.
 
@@ -502,6 +517,8 @@ class ModbusWrapper(ModuleHelper):
         :type       modbus_registers:   dict
         :param      check_expectation:  Flag to check expectation
         :type       check_expectation:  bool
+        :param      sleep_time_sec:     Sleep time between requests
+        :type       sleep_time_sec:     int, default 0
 
         :returns:   Amount of mismatching content and read content as dict
         :rtype:     tuple
@@ -549,10 +566,13 @@ class ModbusWrapper(ModuleHelper):
                                       format(bit_val, expected_val))
                     invalid_reg_counter += 1
 
+            sleep(sleep_time_sec)
+
         return invalid_reg_counter, register_content
 
     def write_coil_registers(self,
-                             modbus_registers: dict) -> Tuple[int, dict]:
+                             modbus_registers: dict,
+                             sleep_time_sec: int = 0) -> Tuple[int, dict]:
         """
         Write all coil registers.
 
@@ -560,6 +580,8 @@ class ModbusWrapper(ModuleHelper):
 
         :param      modbus_registers:   The modbus registers
         :type       modbus_registers:   dict
+        :param      sleep_time_sec:     Sleep time between requests
+        :type       sleep_time_sec:     int, default 0
 
         :returns:   Amount of failed content and failed registers as dict
         :rtype:     tuple
@@ -587,11 +609,14 @@ class ModbusWrapper(ModuleHelper):
                 self.logger.debug('\tSuccessfully set {} to {}'.
                                   format(key, set_val))
 
+            sleep(sleep_time_sec)
+
         return failed_reg_counter, failed_reg_log
 
     def read_hregs_registers(self,
                              modbus_registers: dict,
-                             check_expectation: bool) -> Tuple[int, dict]:
+                             check_expectation: bool,
+                             sleep_time_sec: int = 0) -> Tuple[int, dict]:
         """
         Read all holding registers.
 
@@ -601,6 +626,8 @@ class ModbusWrapper(ModuleHelper):
         :type       modbus_registers:   dict
         :param      check_expectation:  Flag to check expectation
         :type       check_expectation:  bool
+        :param      sleep_time_sec:     Sleep time between requests
+        :type       sleep_time_sec:     int, default 0
 
         :returns:   Amount of mismatching content and read content as dict
         :rtype:     tuple
@@ -677,10 +704,13 @@ class ModbusWrapper(ModuleHelper):
                                       format(register_val, expected_val))
                     invalid_reg_counter += 1
 
+            sleep(sleep_time_sec)
+
         return invalid_reg_counter, register_content
 
     def write_hregs_registers(self,
-                              modbus_registers: dict) -> Tuple[int, dict]:
+                              modbus_registers: dict,
+                              sleep_time_sec: int = 0) -> Tuple[int, dict]:
         """
         Write all holding registers.
 
@@ -688,6 +718,8 @@ class ModbusWrapper(ModuleHelper):
 
         :param      modbus_registers:   The modbus registers
         :type       modbus_registers:   dict
+        :param      sleep_time_sec:     Sleep time between requests
+        :type       sleep_time_sec:     int, default 0
 
         :returns:   Amount of failed content and failed registers as dict
         :rtype:     tuple
@@ -730,11 +762,14 @@ class ModbusWrapper(ModuleHelper):
                 self.logger.debug('Successfully set {} to {}'.
                                   format(register_address, set_val))
 
+            sleep(sleep_time_sec)
+
         return failed_reg_counter, failed_reg_log
 
     def read_ists_registers(self,
                             modbus_registers: dict,
-                            check_expectation: bool) -> Tuple[int, dict]:
+                            check_expectation: bool,
+                            sleep_time_sec: int = 0) -> Tuple[int, dict]:
         """
         Read all discrete input registers.
 
@@ -745,6 +780,8 @@ class ModbusWrapper(ModuleHelper):
         :type       modbus_registers:   dict
         :param      check_expectation:  Flag to check expectation
         :type       check_expectation:  bool
+        :param      sleep_time_sec:     Sleep time between requests
+        :type       sleep_time_sec:     int, default 0
 
         :returns:   Amount of mismatching content and read content as dict
         :rtype:     tuple
@@ -794,11 +831,14 @@ class ModbusWrapper(ModuleHelper):
                                       format(bit_val, expected_val))
                     invalid_reg_counter += 1
 
+            sleep(sleep_time_sec)
+
         return invalid_reg_counter, register_content
 
     def read_iregs_registers(self,
                              modbus_registers: dict,
-                             check_expectation: bool) -> Tuple[int, dict]:
+                             check_expectation: bool,
+                             sleep_time_sec: int = 0) -> Tuple[int, dict]:
         """
         Read all input registers.
 
@@ -808,6 +848,8 @@ class ModbusWrapper(ModuleHelper):
         :type       modbus_registers:   dict
         :param      check_expectation:  Flag to check expectation
         :type       check_expectation:  bool
+        :param      sleep_time_sec:     Sleep time between requests
+        :type       sleep_time_sec:     int, default 0
 
         :returns:   Amount of mismatching content and read content as dict
         :rtype:     tuple
@@ -885,5 +927,7 @@ class ModbusWrapper(ModuleHelper):
                     self.logger.error('\tValue {} not matching expectation {}'.
                                       format(register_val, expected_val))
                     invalid_reg_counter += 1
+
+            sleep(sleep_time_sec)
 
         return invalid_reg_counter, register_content
