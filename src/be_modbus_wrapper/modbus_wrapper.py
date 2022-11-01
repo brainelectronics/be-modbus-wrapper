@@ -18,8 +18,7 @@ from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 import logging
 from time import sleep
-from typing import Tuple
-from typing import Union
+from typing import List, Tuple, Union
 
 # custom imports
 from be_helpers import ModuleHelper
@@ -669,14 +668,10 @@ class ModbusWrapper(ModuleHelper):
                 else:
                     register_val = registers[0:count]
 
-                if register_type == 'float':
-                    # https://de.wikipedia.org/wiki/IEEE_754
-                    # https://stackoverflow.com/questions/55815894/how-to-take-float-value-with-pymodbus-tcp-library    # noqa
-                    decoder = BinaryPayloadDecoder.fromRegisters(
+                if register_type:
+                    register_val = self._decode_payload(
                         registers=response.registers,
-                        byteorder=Endian.Big,
-                        wordorder=Endian.Big)
-                    register_val = decoder.decode_32bit_float()
+                        register_type=register_type)
 
                 try:
                     restored = self.restore_human_readable_content(
@@ -893,14 +888,10 @@ class ModbusWrapper(ModuleHelper):
                     # return all available content of the list
                     register_val = registers[0:count]
 
-                if register_type == 'float':
-                    # https://de.wikipedia.org/wiki/IEEE_754
-                    # https://stackoverflow.com/questions/55815894/how-to-take-float-value-with-pymodbus-tcp-library    # noqa
-                    decoder = BinaryPayloadDecoder.fromRegisters(
+                if register_type:
+                    register_val = self._decode_payload(
                         registers=response.registers,
-                        byteorder=Endian.Big,
-                        wordorder=Endian.Big)
-                    register_val = decoder.decode_32bit_float()
+                        register_type=register_type)
 
                 try:
                     restored = self.restore_human_readable_content(
@@ -931,3 +922,50 @@ class ModbusWrapper(ModuleHelper):
             sleep(sleep_time_sec)
 
         return invalid_reg_counter, register_content
+
+    def _decode_payload(self,
+                        registers: List[int],
+                        register_type: str,
+                        byteorder: str = Endian.Big,
+                        wordorder: str = Endian.Big) -> Union[float, str,
+                                                              List[bool]]:
+        """
+        Decode a modbus payload.
+
+        :param      registers:      The registers to decode
+        :type       registers:      List[int]
+        :param      register_type:  The register type
+        :type       register_type:  str
+        :param      byteorder:      The byteorder
+        :type       byteorder:      str
+        :param      wordorder:      The wordorder
+        :type       wordorder:      str
+
+        :returns:   Decoded register data
+        :rtype:     Union[List[bool], float, str]
+        """
+        decoder = BinaryPayloadDecoder.fromRegisters(
+            registers=registers,
+            byteorder=byteorder,
+            wordorder=wordorder)
+
+        if register_type == 'bit':
+            register_val = decoder.decode_bits()
+        elif register_type == 'float':
+            # https://de.wikipedia.org/wiki/IEEE_754
+            # https://stackoverflow.com/questions/55815894/how-to-take-float-value-with-pymodbus-tcp-library    # noqa
+            register_val = decoder.decode_32bit_float()
+        elif register_type == 'string':
+            register_val = decoder.decode_string(16)
+            try:
+                register_val = register_val.decode("utf-8")
+            except AttributeError:
+                pass
+        elif register_type == '8uint':
+            register_val = decoder.decode_8bit_uint()
+        elif register_type == '16uint':
+            register_val = decoder.decode_16bit_uint()
+        else:
+            register_val = registers
+
+        return register_val
